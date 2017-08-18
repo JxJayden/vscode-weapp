@@ -4,13 +4,13 @@
 		"prefix": "wxApp",
 		"body": [
 			"App({",
-			"\tonLaunch: function() {",
+			"\tonLaunch () {",
 			"\t\t$1",
 			"\t},",
-			"\tonShow: function() {",
+			"\tonShow () {",
 			"\t\t$2",
 			"\t},",
-			"\tonHide: function() {",
+			"\tonHide () {",
 			"\t\t$3",
 			"\t},",
 			"\tglobalData: ${4:globalData}",
@@ -26,27 +26,27 @@
 			"\tdata: {",
 			"\t\t$1",
 			"\t},",
-			"\tonLoad: function(options) {",
+			"\tonLoad (options) {",
 			"\t\t//Do some initialize when page load.",
 			"\t\t$2",
 			"\t},",
-			"\tonReady: function() {",
+			"\tonReady () {",
 			"\t\t//Do some when page ready.",
 			"\t\t$3",
 			"\t},",
-			"\tonShow: function() {",
+			"\tonShow () {",
 			"\t\t//Do some when page show.",
 			"\t\t$4",
 			"\t},",
-			"\tonHide: function() {",
+			"\tonHide () {",
 			"\t\t//Do some when page hide.",
 			"\t\t$5",
 			"\t},",
-			"\tonUnload: function() {",
+			"\tonUnload () {",
 			"\t\t//Do some when page unload.",
 			"\t\t$6",
 			"\t},",
-			"\tonPullDownRefresh: function() {",
+			"\tonPullDownRefresh () {",
 			"\t\t//Do some when page pull down.",
 			"\t\t$7",
 			"\t}",
@@ -63,7 +63,7 @@
 			"\theader: {",
 			"\t\t'Content-Type': 'application/json'",
 			"\t},",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t$2",
 			"\t}",
 			"})$3"
@@ -76,7 +76,7 @@
 		"body": [
 			"wx.getLocation({",
 			"\ttype: '${1:wgs84}',",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\tvar latitude = res.latitude",
 			"\t\tvar longitude = res.longitude",
 			"\t},",
@@ -100,7 +100,7 @@
 		"body": [
 			"wx.getLocation({",
 			"\ttype: '${1:gcj02}',",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\tvar latitude = res.latitude",
 			"\t\tvar longitude = res.longitude",
 			"\t\twx.openLocation({",
@@ -117,7 +117,7 @@
 		"prefix": "wxLogin",
 		"body": [
 			"wx.login({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\tif(res.code) {",
 			"\t\t\t$1",
 			"\t\t} else {",
@@ -133,10 +133,10 @@
 		"prefix": "wxCheckSession",
 		"body": [
 			"wx.checkSession({",
-			"\tsuccess: function(){",
+			"\tsuccess (){",
 			"\t\t$1",
 			"\t},",
-			"\tfail: function(){",
+			"\tfail (){",
 			"\t\t$2",
 			"\t},",
 			"})"
@@ -148,7 +148,7 @@
 		"prefix": "wxGetUserInfo",
 		"body": [
 			"wx.getUserInfo({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\tvar userInfo = res.userInfo",
 			"\t\tvar nickName = userInfo.nickName",
 			"\t\tvar avatarUrl = userInfo.avatarUrl",
@@ -180,7 +180,7 @@
 			"wx.downloadFile({",
 			"\turl: '$1',",
 			"\ttype: ${2:image},",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t// do something",
 			"\t}",
 			"})$3"
@@ -195,7 +195,7 @@
 			"\tcount: 9,\t// 默认为9",
 			"\tsizeType: [${1:'original', 'compressed'}],\t// 指定原图或者压缩图",
 			"\tsourceType: ['${2:album}', '${3:camera}'],\t// 指定图片来源",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\tvar tempFilePaths = res.tempFilePaths",
 			"\t}",
 			"})$4"
@@ -219,7 +219,7 @@
 		"body": [
 			"wx.getImageInfo({",
 			"\tsrc: '$1',",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t${2:// width & height}",
 			"\t}",
 			"})"
@@ -231,10 +231,10 @@
 		"prefix": "wxStartRecord",
 		"body": [
 			"wx.startRecord({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t${1://success, ruturn path of record}",
 			"\t},",
-			"\tfail: function(res) {",
+			"\tfail (res) {",
 			"\t\t${2:// fail, do something}",
 			"\t},",
 			"})"
@@ -282,7 +282,7 @@
 		"body": [
 			"wx.getBackgroundAudioPlayerState({",
 			"\t// callbacks, success & fail & complete",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\tvar status = res.status; // 播放状态",
 			"\t\tvar dataUrl = res.dataUrl; // 链接",
 			"\t\tvar currentPosition = res.currentPosition; // 播放位置",
@@ -355,7 +355,7 @@
 		"body": [
 			"wx.connectSocket({",
 			"\turl: '$1',",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t$2",
 			"\t}",
 			"})$3"
@@ -427,7 +427,7 @@
 		"body": [
 			"wx.saveFile({",
 			"\ttempFilePath: '$1',",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t// success",
 			"\t}",
 			"})"
@@ -439,7 +439,7 @@
 		"prefix": "wxGetSavedFileList",
 		"body": [
 			"wx.getSavedFileList({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t${1:console.log(res.fileList)}",
 			"\t\t${2:// callback functions, fail & complete}",
 			"\t}",
@@ -453,7 +453,7 @@
 		"body": [
 			"wx.getSavedFileInfo({",
 			"\tfilePath: $1,",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t${2:// res.size & res.createTime}",
 			"\t}",
 			"})"
@@ -485,7 +485,7 @@
 	"success": {
 		"prefix": "success",
 		"body": [
-			"success: function() {",
+			"success () {",
 			"\t$1",
 			"}"
 		],
@@ -495,7 +495,7 @@
 	"fail": {
 		"prefix": "fail",
 		"body": [
-			"fail: function() {",
+			"fail () {",
 			"\t$1",
 			"}"
 		],
@@ -505,7 +505,7 @@
 	"complete": {
 		"prefix": "complete",
 		"body": [
-			"complete: function() {",
+			"complete () {",
 			"\t$1",
 			"}"
 		],
@@ -606,7 +606,7 @@
 		"prefix": "wxGetStorageInfo",
 		"body": [
 			"wx.getStorageInfo({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t$1",
 			"\t}",
 			"})"
@@ -623,7 +623,7 @@
 		"body": [
 			"wx.removeStorage({",
 			"\tkey: '$1',",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t$2",
 			"\t}",
 			"})"
@@ -649,7 +649,7 @@
 		"prefix": "wxGetNetworkType",
 		"body": [
 			"wx.getNetworkType({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t$1",
 			"\t}",
 			"})"
@@ -660,7 +660,7 @@
 		"prefix": "wxGetSystemInfo",
 		"body": [
 			"wx.getSystemInfo({",
-			"\tsuccess: function(res) {",
+			"\tsuccess (res) {",
 			"\t\t$1",
 			"}",
 			"})"
@@ -700,10 +700,10 @@
 			"\tpackage: '$3',",
 			"\tsignType: '$4',",
 			"\tpaySign: '$5',",
-			"\tsuccess: function(res){",
+			"\tsuccess (res){",
 			"\t\t$6",
 			"\t},",
-			"\tfail: function(res){",
+			"\tfail (res){",
 			"\t\t$7",
 			"\t}",
 			"})"
